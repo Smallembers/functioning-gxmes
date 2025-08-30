@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirecting...</title>
-  <script>
-    window.onload = function() {
-      var win = window.open("about:blank", "_blank");
-      var iframe = win.document.createElement("iframe");
-      iframe.src = "https://duckmath-4i3.pages.dev/";
-      iframe.style.border = "none";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      win.document.body.style.margin = "0";
-      win.document.body.appendChild(iframe);
-    };
-  </script>
+  <title>Game Launcher</title>
 </head>
 <body>
-  <p>Opening in about:blank cloak...  
-     If it doesn’t work, <a href="https://duckmath-4i3.pages.dev/" target="_blank">click here</a>.</p>
+  <button onclick="openGame()">Open Game</button>
+
+  <script>
+    function openGame() {
+      var win = window.open("about:blank", "_blank");
+      var url = "https://example.com"; // change this to your game link
+
+      var iframe = win.document.createElement("iframe");
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "none";
+      iframe.src = url;
+
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh"; 
+      win.document.body.appendChild(iframe);
+    }
+  </script>
 </body>
 </html>
