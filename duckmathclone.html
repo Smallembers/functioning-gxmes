@@ -2,26 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Game Launcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function() {
+      // Open target in the same tab
+      window.location.replace("https://duckmath-4i3.pages.dev/");
+
+      // Attempt to close the original tab (only works if opened via JS)
+      window.close();
+    };
+  </script>
 </head>
 <body>
-  <button onclick="openGame()">Open Game</button>
-
-  <script>
-    function openGame() {
-      var win = window.open("about:blank", "_blank");
-      var url = "https://duckmath-4i3.pages.dev/"; // change this to your game link
-
-      var iframe = win.document.createElement("iframe");
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.border = "none";
-      iframe.src = url;
-
-      win.document.body.style.margin = "0";
-      win.document.body.style.height = "100vh"; 
-      win.document.body.appendChild(iframe);
-    }
-  </script>
+  <h2 style="text-align:center; margin-top:20%;">Redirecting...</h2>
+  <p style="text-align:center;">If nothing happens, <a href="https://duckmath-4i3.pages.dev/">click here</a>.</p>
 </body>
 </html>
