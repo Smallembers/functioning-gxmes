@@ -1,12 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0;url=https://3kh0-lite-ah7.pages.dev/projects/retro-bowl/">
+    <title>Loading...</title>
 </head>
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://3kh0-lite-ah7.pages.dev/projects/retro-bowl/">link</a>.</p>
+    <script>
+        // Immediately open a new 'about:blank' window
+        const newWindow = window.open('about:blank', '_blank');
+
+        // Check if the popup was blocked
+        if (newWindow) {
+            // Write the new document content, including the iframe
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Retro Bowl</title>
+                    <style>
+                        body, html {
+                            margin: 0;
+                            padding: 0;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                        iframe {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <iframe src="https://3kh0-lite-ah7.pages.dev/projects/retro-bowl/"></iframe>
+                </body>
+                </html>
+            `);
+            newWindow.document.close(); // Important to finish writing to the document
+        } else {
+            alert('Popup was blocked. Please allow popups for this page to work.');
+        }
+
+        // Optional: you can close the original tab
+        // window.close();
+    </script>
+    <p>Opening in a new tab... If nothing happens, please enable popups for this site.</p>
 </body>
 </html>
