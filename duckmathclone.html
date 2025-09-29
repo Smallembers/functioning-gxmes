@@ -1,22 +1,32 @@
 <html>
 
 <head>
+    <title>Game Launcher</title>
 </head>
 
 <body>
-	<button onclick="openGame()">Open Game in About:Blank</button>
-	<script>
-		function openGame() {
-var win = window.open()
-var url = "https://duckmath-4i3.pages.dev/"
-var iframe = win.document.createElement('iframe')
-iframe.style.width = "100%";
-iframe.style.height = "100%";
-iframe.style.border = "none";
-iframe.src = url
-win.document.body.appendChild(iframe)
-}
-	</script>
+    <button onclick="openGameCloaked()">Open in About:Blank</button>
+    <button onclick="openGameNormally()">Open Normally</button>
+
+    <script>
+        // URL for the game, defined once to be easily changed.
+        const gameUrl = "https://duckmath-4i3.pages.dev/";
+
+        function openGameCloaked() {
+            const win = window.open();
+            win.document.body.style.margin = '0'; // Remove default margin
+            const iframe = win.document.createElement('iframe');
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "none";
+            iframe.src = gameUrl;
+            win.document.body.appendChild(iframe);
+        }
+        
+        function openGameNormally() {
+            window.open(gameUrl, '_blank');
+        }
+    </script>
 </body>
 
 </html>
