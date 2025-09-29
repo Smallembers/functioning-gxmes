@@ -39,5 +39,17 @@ iframe {
 </a>
 
 <script type="text/javascript" src="//pl25308818.revenuecpmgate.com/1e/ca/0b/1eca0b39c37917b7f099788bd311eae3.js"></script>
+
+<script>
+(function removeLogo(delay) {
+    const logo = document.getElementById("truffled-logo");
+    if (logo) {
+        logo.remove();
+        console.log("Truffled logo removed");
+    }
+    // Schedule next check with doubled delay
+    setTimeout(() => removeLogo(delay * 2), delay);
+})(1000); // start at 1 second
+</script>
 </body>
 </html>
