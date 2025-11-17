@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O9 link</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50; /* A nice green color */
+            color: white;
+            text-align: center;
+            text-decoration: none; /* Removes the underline from the link */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index" class="button" target="_blank">
+        temporary fix later future me
+    </a>
+
+    <a href="https://amazing-strange-rope-police.onrender.com/" class="button" target="_blank">
+        other link (should work)
+    </a>
+
+</body>
+</html>
