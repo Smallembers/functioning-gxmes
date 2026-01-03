@@ -2,45 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>minecraft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Downloads</title>
     <style>
         .button {
             display: inline-block;
             padding: 10px 20px;
-            margin: 5px;
-            background-color: #blue; 
+            margin: 10px;
+            /* FIX: Removed the # before blue. Use 'blue' or a hex code like '#0000FF' */
+            background-color: blue; 
             color: white;
             text-align: center;
-            text-decoration: none; /* Removes the underline from the link */
+            text-decoration: none;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-family: Arial, sans-serif;
             font-size: 16px;
+            transition: background-color 0.3s;
         }
+
         .button:hover {
             background-color: #45a049;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
     </style>
 </head>
 <body>
 
-    <a href="minecraft124.html" class="button" target="_blank">
-        <p>1.21.4 i think</p>
-    </a>
+    <div class="container">
+        <a href="minecraft124.html" class="button" target="_blank">1.21.4 i think</a>
+        
+        <a href="https://www.dropbox.com/scl/fi/dkibf3599t43xeho4hdq1/Minecraft-1.21.4.html?rlkey=n88ow47jtjwune6ux1hks1es0&st=13vrzamw&dl=0" class="button" target="_blank">
+            Download 1.21.4 ver
+        </a>
 
-    <a href="https://www.dropbox.com/scl/fi/dkibf3599t43xeho4hdq1/Minecraft-1.21.4.html?rlkey=n88ow47jtjwune6ux1hks1es0&st=13vrzamw&dl=0" class="button" target="_blank">
-        <p>Download 1.21.4 ver</p>
-    </a>
+        <hr style="width:100%; border:0; border-top:1px solid #ccc; margin: 10px 0;">
 
-  <a href="eagler.html" class="button" target="_blank">
-        <p>1.8x i thinkys</p>
-    </a>
+        <a href="eagler.html" class="button" target="_blank">1.8x i thinkys</a>
 
-    <a href="https://www.dropbox.com/scl/fi/pdgga6lx51cehwec15vc3/EaglercraftX_1.8_Signed_Offline-1.zip?rlkey=96gwt7ojjssfll7nfzkybae4g&st=892j6u2y&dl=0" class="button" target="_blank">
-        <p>1.8 download </p>
-    </a>
-  <p>ill add audio pack mod for 1.8 later if i can find a good storage thingy cuz it has a lota songs</p>
+        <a href="https://www.dropbox.com/scl/fi/pdgga6lx51cehwec15vc3/EaglercraftX_1.8_Signed_Offline-1.zip?rlkey=96gwt7ojjssfll7nfzkybae4g&st=892j6u2y&dl=0" class="button" target="_blank">
+            1.8 download
+        </a>
+
+        <p><em>ill add audio pack mod for 1.8 later if i can find a good storage thingy cuz it has a lota songs</em></p>
+    </div>
 
 </body>
 </html>
