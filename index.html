@@ -1,282 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Small_embers Gxmes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #eee;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: #222;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .card {
-            background: #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        .card img {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-        }
-
-        .card a {
-            display: block;
-            padding: 12px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
-            background: #333;
-        }
-
-        .card a+a {
-            margin-top: 6px;
-            /* adds space between stacked buttons */
-        }
-
-        .card a:hover {
-            background: #444;
-        }
-    </style>
-    <link rel="icon" type="image/x-icon" href="images/potatocat.jpg">
-</head>
-
-<body>
-    <header>
-        <h1>Small_embers Gxmes</h1>
-        <p>New link is https://functioning-gxmes3.onrender.com/ make sure to backup your save files if you can (in bss)</p>
-        <p>join the google classroom gng code is soof4fas</p>
-        <p>:3</p>
-    </header>
-
-    <div class="grid">
-        <div class="card">
-            <img src="images/ultrakill.png" alt="Ultrakill" />
-            <a href="ultrakill.html">Ultrakill</a>
-            <p>(demo) only first 4 levels i think</p>
+<html lang="en-us">
+  <head>
+    <base href="https://cdn.jsdelivr.net/gh/Smallembers/fnae@855ba2f/file">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | Five Night's at BIG E</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+  <div id="loading-text"
+    style="color: white; font-size: 48px; font-family: cursive; text-align: center; margin-top: 20px;"> LOADING...
+  </div>
+    <div id="unity-container">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
-        <div class="card">
-            <img src="images/undertale.png" alt="Undertale" />
-            <a href="undertale.html">Undertale</a>
-            <a href="yellow.html">Yellow</a>
-        </div>
-        <div class="card">
-            <img src="images/deltarune.png" alt="Deltarune" />
-            <a href="deltarune/chap1.html">Deltarune Chapter 1</a>
-        </div>
-        <div class="card">
-            <img src="images/deltarune.png" alt="Deltarune" />
-            <a href="deltarune/chap2.html">Deltarune Chapter 2</a>
-        </div>
-        <div class="card">
-            <img src="images/deltarune.png" alt="Deltarune" />
-            <a href="deltarune/chap3.html">Deltarune Chapter 3</a>
-        </div>
-        <div class="card">
-            <img src="images/deltarune.png" alt="Deltarune" />
-            <a href="deltarune/chap4.html">Deltarune Chapter 4</a>
-        </div>
-        <div class="card">
-            <img src="images/amanda-the-adventurer.png" alt="Amanda the Adventurer" />
-            <a href="amanda-the-adventurer.html">Amanda the Adventurer</a>
-        </div>
-        <div class="card">
-            <img src="images/bendy.png" alt="Bendy" />
-            <a href="bendy.html">Bendy</a>
-        </div>
-        <div class="card">
-            <img src="images/bloodmoney.webp" alt="Blood Money" />
-            <a href="bloodmoney.html">Blood Money</a>
-        </div>
-        <div class="card">
-            <img src="images/buckshotroulette.png" alt="Buckshot Roulette" />
-            <a href="buckshotroulette.html">Buckshot Roulette</a>
-        </div>
-        <div class="card">
-            <img src="images/deadseat.png" alt="Dead Seat" />
-            <a href="deadseat.html">Dead Seat</a>
-        </div>
-        <div class="card">
-            <img src="images/fears-to-fathom.png" alt="Fears to Fathom" />
-            <a href="fears-to-fathom.html">Fears to Fathom</a>
-        </div>
-        <div class="card">
-            <img src="images/hotlinemiami.jpg" alt="Hotline Miami" />
-            <a href="hotlinemiami.html">Hotline Miami (please work)</a>
-        </div>
-        <div class="card">
-            <img src="images/peopleplayground.jpg" alt="People Playground" />
-            <a href="peopleplayground.html">People Playground</a>
-        </div>
-        <div class="card">
-            <img src="images/slender.png" alt="Slender" />
-            <a href="slender.html">Slender</a>
-        </div>
-        <div class="card">
-            <img src="images/thats-not-my-neighbor.jpg" alt="That's Not My Neighbor" />
-            <a href="thats-not-my-neighbor.html">That's Not My Neighbor</a>
-        </div>
-        <div class="card">
-            <img src="images/the-man-from-the-window.avif" alt="The Man in the Window" />
-            <a href="the-man-in-the-window.html">The Man in the Window</a>
-        </div>
-        <div class="card">
-            <img src="images/bergentruck.webp" alt="Bergentruck" />
-            <a href="deltarune/bergentruck.html">Bergentruck</a>
-        </div>
-        <div class="card">
-            <img src="images/scramjet.png" alt="Interstellar" />
-            <a href="interstellar.html">Scramjet</a>
-            <p>will take a bit to load b/c i cant afford fast servers</p>
-        </div>
-        <div class="card">
-            <img src="images/hollowknight.webp" alt="Hollow Knight" />
-            <a href="hollowknight.html">Hollow Knight</a>
-            <p>game is bugged so you cant kill dreamers but everything else works (the farthest you can get is killing nkg)</p>
-        </div>
-        <div class="card">
-            <img src="images/cuphead.png" alt="Cuphead (long load)" />
-            <a href="cuphead.html">Cuphead (long load)</a>
-        </div>
-        <div class="card">
-            <img src="images/retrobowl.png" alt="retrobowl" />
-            <a href="retrobowl.html">retro bowl (might break)</a>
-        </div>
-        <div class="card">
-            <img src="images/jumpking.avif" jump king="list" />
-            <a href="jumpking/index.html">jumpking</a>
-        </div>
-        <div class="card">
-            <img src="images/tboi.jpg" tboi="list" />
-            <a href="issacbinding.html">The Binding Of Issac</a>
-        </div>
-        <div class="card">
-            <img src="images/adofi.png" adofi="list" />
-            <a href="adofi.html">A Dance of Fire and Ice</a>
-        </div>
-        <div class="card">
-            <img src="images/asrp.png" amazingropepolice="list" />
-            <a href="asrplink.html">Amazing Strange Rope Police (fix)!</a>
-        </div>
-        <div class="card">
-            <img src="images/" alt="ion want this image saved on my chromebook bro :sob"="list" />
-            <a href="09link.html">Class of 09 (not mine)</a>
-        </div>
-        <div class="card">
-            <img src="images/bee.webp" beeswarm="list" />
-            <a href="beeswarm.html">Bee-Swarm-Simulator</a>
-        </div>
-        <div class="card">
-            <img src="images/Omori_cover.jpg" omori="list" />
-            <a href="omori.html">Omori</a>
-        </div>
-        <div class="card">
-            <img src="images/gn-math.png" gn-math="list" />
-            <a href="gn-link.html">download gn-math (cant get blxcked)</a>
-        </div>
-        <div class="card">
-            <img src="images/snowrider.png" snowrider="list" />
-            <a href="sr3d.html">snow rider</a>
-        </div>
-        <div class="card">
-            <img src="images/lmql.png" locked mode unlocker="list" />
-            <a href="googleform.html">Locked Mode Google Form Unlocker</a>
-        </div>
-        <div class="card">
-            <img src="images/celeste.avif" celeste="list" />
-            <a href="celeste.html">Celeste (Real)</a>
-            <p>may not work on chromebooks with low memory</p>
-        </div>
-        <div class="card">
-            <img src="images/celeste.avif" celeste="list" />
-            <a href="celestepico8/celeste.html">Celeste Pico 8</a>
-            <a href="celestepico8/celestepracticemod.html">Practice mod</a>
-        </div>
-        <div class="card">
-            <img src="images/pizzatower.avif" pizza="list" />
-            <a href="pizzatower.html">Pizza Tower</a>
-            <p>game only works if you skip intro btw</p>
-        </div>
-        <div class="card">
-            <img src="images/minesweeper.png" minesweeper="list" />
-            <a href="minesweeperplus.html">Minesweeper Plus (peak trust)</a>
-        </div>
-        <div class="card">
-            <img src="images/ovo-game.png" OVO="list" />
-            <a href="ovo/index.html">OVO 1.4.4</a>
-            <a href="ovodimensions.html">OVO Dimensions</a>
-            <a href="ovo/modded.html">OVO 1.4.4 Modded</a>
-        </div>
-        <div class="card">
-            <img src="images/fnaf.jpeg" rahhh="list" />
-            <a href="Fnaf.html">Fnaf stuff</a>
-            <p>ok i added it i think</p>
-        </div>
-        <div class="card">
-            <img src="images/30dollar.png" godicantfrvckingcodedude="list" />
-            <a href="thirtydollarwebsite.html">thirtydollar website</a>
-            <p>i swear if i hear the clash royale laugh in like second period when im on 3 hours of sleep dude</p>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" roblox="list" />
-            <a href="https://ferntheplantithink.truefruit.tw/">roblox actually fixed this time</a>
-            <p>make sure to have <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh">UBlock Origin Lite</a> installed, then click roblox button on the prxy</p>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" minecraft="list" />
-            <a href="minecraftlink.html">minecraft</a>
-            <p>gurt</p>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" spacewaves="list" />
-            <a href="spacewaves.html">space waves</a>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" ltf3="list" />
-            <a href="learntofly3.html">learn to fly 3</a>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" happywheels="list" />
-            <a href="grandparocketwheelchair.html">happywheels</a>
-        </div>
-        <div class="card">
-            <img src="images/lazy.png" doki="list" />
-            <a href="doki.html">Doki Doki Literature Club</a>
-            <p>(peak)</p>
-        </div>
-        <b><p>yo images coming never</p></b>
+      </div>
     </div>
-    </div>
-</body>
+    <script>
+var loadingText = document.querySelector("#loading-text");
+    let totalBytes = 0;
+    let loadedBytes = 0;
+
+    async function fetchWithProgress(url) {
+      const response = await fetch(url);
+      const reader = response.body.getReader();
+      let chunks = [];
+      let received = 0;
+      while (true) {
+        const {
+          done,
+          value
+        } = await reader.read();
+        if (done) break;
+        received += value.length;
+        loadedBytes += value.length;
+        chunks.push(value);
+        let mbDone = (loadedBytes / (1024 * 1024)).toFixed(2);
+        let mbTotal = '139.53';
+        loadingText.textContent = `LOADING... ${mbDone} MB / ${mbTotal} MB`;
+      }
+      let fullBuffer = new Uint8Array(received);
+      let offset = 0;
+      for (let chunk of chunks) {
+        fullBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+      return fullBuffer.buffer;
+    }
+
+    async function mergeFiles(fileParts, cacheKey) {
+      const buffers = await Promise.all(
+        fileParts.map(part => fetchWithProgress(part))
+      );
+      const mergedBlob = new Blob(buffers);
+      return URL.createObjectURL(mergedBlob);
+    }
+
+    function getParts(file, start, end) {
+      let parts = [];
+      for (let i = start; i <= end; i++) {
+        parts.push(file + ".part" + i);
+      }
+      return parts;
+    }
+    (async () => {
+      const [dataUrl, wasmUrl, webm] = await Promise.all([
+        mergeFiles(getParts("Build/fnae.data", 1, 3), "fnae.data"),
+        mergeFiles(getParts("Build/fnae.wasm", 1, 2), "fnae.wasm"),
+        mergeFiles(getParts("StreamingAssets/202512191935.webm", 1, 3), "202512191935.webm"),
+      ]);
+
+window.randomwebm = webm;
+const realSrc = Object.getOwnPropertyDescriptor(
+  HTMLMediaElement.prototype,
+  "src"
+);
+
+Object.defineProperty(HTMLMediaElement.prototype, "src", {
+  set(value) {
+    if (typeof value === "string" && value.includes("202512191935.mp4")) {
+      value = window.randomwebm;
+    }
+    return realSrc.set.call(this, value);
+  },
+  get() {
+    return realSrc.get.call(this);
+  }
+});
+
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/fnae.loader.js";
+      var config = {
+        arguments: [],
+        dataUrl: dataUrl,
+        frameworkUrl: buildUrl + "/fnae.framework.js",
+        codeUrl: wasmUrl,
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "fnae",
+        productVersion: "1.0",
+        showBanner: unityShowBanner,
+      };
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          loadingText.remove();
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    })();
+    </script>
+  </body>
 </html>
