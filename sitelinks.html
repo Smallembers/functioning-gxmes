@@ -3,8 +3,8 @@
 <head>
     <title>otherlinks</title>
     <style>
-        /* Optional: Added a little spacing so the buttons aren't squished */
-        .game-container {
+        /* Spacing for link groups */
+        .link-container {
             margin-bottom: 15px;
         }
         button {
@@ -18,40 +18,42 @@
 <body>
     <h3>MY Links >:)))))</h3>
 
-    <div class="game-container">
+    <div class="link-container">
         <strong>gn-math (a bit broken)</strong>
-        <button onclick="openGameCloaked('https://gn-math-apk.pages.dev/')">Open in About:Blank</button>
-        <button onclick="openGameNormally('https://gn-math-apk.pages.dev//')">Open Normally</button>
+        <button onclick="openLinkCloaked('https://gn-math-apk.pages.dev/')">Open in About:Blank</button>
+        <button onclick="openLinkNormally('https://gn-math-apk.pages.dev//')">Open Normally</button>
     </div>
 
-    <div class="game-container">
+    <div class="link-container">
         <strong>selenite</strong>
-        <button onclick="openGameCloaked('https://seleniteclone.mapadelapolicia.com/')">Open in About:Blank</button>
-        <button onclick="openGameNormally('https://seleniteclone.mapadelapolicia.com/')">Open Normally</button>
+        <button onclick="openLinkCloaked('https://seleniteclone.mapadelapolicia.com/')">Open in About:Blank</button>
+        <button onclick="openLinkNormally('https://seleniteclone.mapadelapolicia.com/')">Open Normally</button>
     </div>
 
-    <div class="game-container">
-        <strong>Game 3:</strong>
-        <button onclick="openGameCloaked('https://example.com/game3')">Open in About:Blank</button>
-        <button onclick="openGameNormally('https://example.com/game3')">Open Normally</button>
+    <div class="link-container">
+        <strong>Item 3:</strong>
+        <button onclick="openLinkCloaked('https://example.com/item3')">Open in About:Blank</button>
+        <button onclick="openLinkNormally('https://example.com/item3')">Open Normally</button>
     </div>
 
     <p>yay i fixed and updated it :3</p>
 
     <script>
-        // The functions now take 'url' as an argument so they work for ANY link!
-        function openGameCloaked(url) {
+        // These functions handle the logic for any URL provided
+        function openLinkCloaked(url) {
             const win = window.open();
-            win.document.body.style.margin = '0'; // Remove default margin
-            const iframe = win.document.createElement('iframe');
-            iframe.style.width = "100%";
-            iframe.style.height = "100%";
-            iframe.style.border = "none";
-            iframe.src = url;
-            win.document.body.appendChild(iframe);
+            if (win) {
+                win.document.body.style.margin = '0'; // Remove default margin
+                const iframe = win.document.createElement('iframe');
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                iframe.src = url;
+                win.document.body.appendChild(iframe);
+            }
         }
         
-        function openGameNormally(url) {
+        function openLinkNormally(url) {
             window.open(url, '_blank');
         }
     </script>
