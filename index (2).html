@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #121212;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      color: #ffffff;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 250px;
+      box-sizing: border-box;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 12px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 8px;
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #666;
+    }
+
+    #stats {
+      margin-top: 15px;
+      color: #ff5252;
+      white-space: pre-wrap;
+      font-weight: 500;
+    }
+
+    .row {
+      margin-top: 20px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      font-family: monospace;
+      font-size: 13px;
+      padding: 8px 10px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    #viewsource-result input[type="text"] {
+      background: #252525;
+      color: #888;
+    }
+
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+      background-color: #333;
+      border: 1px solid #444;
+      border-radius: 4px;
+      font-weight: 500;
+      color: #fff;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #444;
+      border-color: #555;
+    }
+
+    #yourthing {
+      background-color: #ffffff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    #yourthing:hover {
+      background-color: #cccccc;
+    }
+
+    #viewsource-instructions {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      background: #1a1910;
+      border: 1px solid #4d4500;
+      color: #ffd700;
+      border-radius: 4px;
+      padding: 12px;
+    }
+
+    #source-section {
+      display: none;
+      border-top: 1px solid #333;
+      margin-top: 30px;
+      padding-top: 10px;
+    }
+
+    #copy-confirm {
+      font-size: 12px;
+      color: #4caf50;
+      margin-left: 4px;
+    }
+
+    label {
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+  <script>
+    function parseSource(source) {
+      const match = source.match(/_docs_flag_initialData=(?<data>{[\s\S]*?});<\/script>/);
+      if (!match || !match.groups || !match.groups.data) {
+        throw new Error("Could not find _docs_flag_initialData block in the pasted source.");
+      }
+      const info_map = JSON.parse(match.groups.data);
+      if (!info_map.info_params || !info_map.info_params.token) {
+        throw new Error("Could not find info_params.token in parsed data.");
+      }
+      const token = info_map.info_params.token;
+      let my_query_params = new URLSearchParams();
+      if (info_map["docs-crq"]) {
+        let url_search_params = new URLSearchParams(info_map["docs-crq"]);
+        if (url_search_params.get("hr_submission")) {
+          my_query_params.append("hr_submission", url_search_params.get("hr_submission"));
+        }
+      }
+      if (!info_map["docs-crp"]) {
+        throw new Error("Could not find docs-crp in parsed data.");
+      }
+      const url = "https://docs.google.com" + info_map["docs-crp"] +
+        (my_query_params.toString() ? "?" + my_query_params.toString() : "");
+      return { token: token, url: url };
+    }
+
+    window.addEventListener("load", () => {
+      document.querySelector("#gen-viewsource-btn").addEventListener("click", () => {
+        const raw = document.querySelector("#form_link_input").value.trim();
+        if (!raw) {
+          document.querySelector("#viewsource-instructions").textContent = "Paste a Google Form link first.";
+          document.querySelector("#viewsource-instructions").style.display = "block";
+          document.querySelector("#viewsource-result").style.display = "none";
+          return;
+        }
+        const clean = raw.replace(/^view-source:/i, "");
+        const vsLink = "view-source:" + clean;
+        document.querySelector("#viewsource-link-box").value = vsLink;
+        document.querySelector("#viewsource-result").style.display = "flex";
+        document.querySelector("#viewsource-instructions").style.display = "block";
+        document.querySelector("#viewsource-instructions").innerHTML =
+          "1. Open the link above in your browser.<br>2. Press <strong>Ctrl+A</strong> to select all.<br>3. Press <strong>Ctrl+C</strong> to copy.<br>4. Paste it in the box below.";
+        document.querySelector("#source-section").style.display = "block";
+        document.querySelector("#copy-confirm").textContent = "";
+      });
+
+      document.querySelector("#copy-btn").addEventListener("click", () => {
+        const box = document.querySelector("#viewsource-link-box");
+        box.select();
+        try {
+          navigator.clipboard.writeText(box.value).then(() => {
+            document.querySelector("#copy-confirm").textContent = "copied!";
+            setTimeout(() => { document.querySelector("#copy-confirm").textContent = ""; }, 2000);
+          });
+        } catch {
+          document.execCommand("copy");
+          document.querySelector("#copy-confirm").textContent = "copied!";
+          setTimeout(() => { document.querySelector("#copy-confirm").textContent = ""; }, 2000);
+        }
+      });
+
+      document.querySelector("#yourthing").addEventListener("click", () => {
+        const stats = document.querySelector("#stats");
+        stats.textContent = "";
+        try {
+          const sourceText = document.querySelector("#form_source").value;
+          if (!sourceText.trim()) {
+            stats.textContent = "Please paste the full Google Form page source first.";
+            return;
+          }
+          const source_info = parseSource(sourceText);
+          document.querySelector("#token").value = source_info.token;
+          document.querySelector("#greatest_form").setAttribute("action", source_info.url);
+          stats.textContent = "Token and URL extracted. Submitting form in a new tab...";
+          document.querySelector("#sub").click();
+        } catch (e) {
+          stats.textContent = e.toString();
+          console.error(e);
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>cheddar form cracker</h1>
+
+    <div class="row">
+      <label>Paste the locked Google Form link here:</label>
+      <div class="input-group">
+        <input type="text" id="form_link_input" placeholder="https://docs.google.com/forms/d/e/...">
+        <button id="gen-viewsource-btn">get source link</button>
+      </div>
+    </div>
+
+    <div id="viewsource-result" class="input-group" style="display:none;">
+      <input type="text" id="viewsource-link-box" readonly>
+      <button id="copy-btn">copy</button>
+      <span id="copy-confirm"></span>
+    </div>
+
+    <p id="viewsource-instructions" style="display:none;"></p>
+
+    <div id="source-section">
+      <div class="row">
+        <label>Paste the full page source below:</label>
+        <textarea id="form_source" placeholder="Paste Google Form page source here..."></textarea>
+      </div>
+
+      <div class="row">
+        <button id="yourthing">unlock form</button>
+      </div>
+
+      <p id="stats"></p>
+    </div>
+
+    <form target="_blank" method="POST" id="greatest_form">
+      <input type="hidden" name="token" id="token">
+      <input type="hidden" name="tz_offset" value="120">
+      <input type="submit" style="display: none;" value="Submit" id="sub">
+    </form>
+  </div>
+</body>
+</html>
